@@ -16,5 +16,7 @@ if (\Request::is('panel/Blog/*'))
 {
     \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
 }
+Route::get('/blog-featured-events', '\Serverfireteam\blog\BlogController@featuredEvents');
 
 Route::controller('/blog', '\Serverfireteam\blog\BlogController');
+

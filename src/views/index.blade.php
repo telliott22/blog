@@ -1,21 +1,22 @@
-@extends('blog::master')
+@extends('app')
 
-@section('body')
+@section('content')
 <div class="container index">
 
     <div class="clearfix top">
         <nav>
             <ul class="nav nav-pills pull-right">
                 <li class="active">{!! Html::link('/blog','Last Post') !!}</li>
-                <li>{!! Html::link('/','Back to Site') !!}</li>
+                <li class="active">{!! Html::link('/blog-featured-events','Featured Events') !!}</li>
+                {{--<li>{!! Html::link('/','Back to Site') !!}</li>--}}
             </ul>
         </nav>
-        <h3 class="text-muted">{!! Html::link('/blog',\Config::get('blog.title')) !!}</h3>
+        {{--<h3 class="text-muted">{!! Html::link('/blog',\Config::get('blog.title')) !!}</h3>--}}
     </div>
      @if(count($last)==0)
                <div class="alert alert-warning" role="alert">Noting to see, go to panel and post something first !</div>
      @else
-    <p class="subtitle fancy"><span>MOST RECOMMENDED</span></p>
+    <p class="subtitle fancy"><span>{{$title}}</span></p>
 
     <div class="most-recommended-img clearfix">
         <a href="{{$mostRecommended->getUrl()}}"><img src="uploads/{{$mostRecommended['image']}}" class="img-responsive img-rounded col-xs-12 no-padding" alt="{{$mostRecommended['title']}}"></a>
@@ -50,11 +51,6 @@
     </div>
     @endif
 </div>
-<footer class="footer">
-      <div class="container">
-        <p class="text-muted">Powered by <a href="https://github.com/serverfireteam/panel">Serverfireteam/panel</a> .</p>
-      </div>
-    </footer>
 
 
         

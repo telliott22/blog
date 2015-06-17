@@ -19,8 +19,17 @@ class BlogController extends BaseController {
             $last            = \App\Blog::lastPosts();
             //echo'<pre>';
             //dd($mostRecommended);
-            return View('blog::index',array('title'=>"Wellcome ",'mostRecommended'=>$mostRecommended,'last'=>$last));
+            return View('blog::index',array('title'=>"Welcome",'mostRecommended'=>$mostRecommended,'last'=>$last));
 	}
+
+    public function featuredEvents()
+    {
+        $mostRecommended = \App\Blog::latestFeaturedEvent();
+        $last            = \App\Blog::featuredEvents();
+        //echo'<pre>';
+        //dd($mostRecommended);
+        return View('blog::index',array('title'=>"Featured Events",'last'=>$last,'mostRecommended'=>$mostRecommended));
+    }
 
     public static function seoUrl($string) {
         //Lower case everything
