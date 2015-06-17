@@ -39,7 +39,7 @@
             @endif
 
             @if($post->previousPost())
-            <a class="pull-left btn btn-default" href="{{$post->previousPost()->getUrl()}}">Previus : {{$post->previousPost()['title']}}
+            <a class="pull-left btn btn-default" href="{{$post->previousPost()->getUrl()}}">Previous : {{$post->previousPost()['title']}}
                 <span class="fa fa-angle-left" aria-hidden="true"></span>
             </a>
             @endif
