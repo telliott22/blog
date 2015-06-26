@@ -28,7 +28,8 @@ class BlogController extends \Serverfireteam\Panel\CrudController {
         $this->grid->add('id','ID', true)->style("width:100px");
         $this->grid->add('title','title');
         $this->grid->add('socialPoint','social Point');
-        $this->addStylesToGrid();           
+        $this->grid->add('featured','Featured Event');
+        $this->addStylesToGrid();
                        
         return $this->returnView();
     }
@@ -44,6 +45,7 @@ class BlogController extends \Serverfireteam\Panel\CrudController {
         $this->edit->add('title','post title', 'text')->rule('required|min:3');
         $this->edit->add('author','author', 'text')->rule('required|min:2');   
         $this->edit->add('content','content', 'textarea')->rule('required');
+        $this->edit->add('featured','Featured Event', 'radiogroup')->option('0','Not-featured')->option('1','Featured Event')->rule('required');
         $this->edit->add('image','image', 'image')->move('uploads/');
         $this->edit->add('color','Color','colorpicker');
         $this->edit->add('public','public','radiogroup')->option(0,'Draft')->option(1,'Ready');
