@@ -19,8 +19,16 @@ class BlogController extends BaseController {
             $last            = \App\Blog::lastPosts();
             //echo'<pre>';
             //dd($mostRecommended);
+<<<<<<< HEAD
 
             return View('blog::index',array('title'=>"Welcome",'mostRecommended'=>$mostRecommended,'last'=>$last));
+=======
+<<<<<<< HEAD
+            return View('blog::index',array('title'=>"Welcome ",'mostRecommended'=>$mostRecommended,'last'=>$last));
+=======
+            return View('blog::index',array('title'=>"Welcome",'mostRecommended'=>$mostRecommended,'last'=>$last));
+>>>>>>> spare-green-room
+>>>>>>> 0ff6d869bd9e6b18fa4e128418a3cd196f177318
 	}
 
     public function featuredEvents()
