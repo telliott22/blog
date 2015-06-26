@@ -1,6 +1,6 @@
 {
-    "name": "telliott22/blog",
-    "description": "A fork of a nice blog system with laravel and laravelpanel",
+    "name": "serverfireteam/blog",
+    "description": "A nice blog system with laravel and laravelpanel",
     "keywords": ["Laravel", "Blog","CMS","administrator", "admin", "backend"],
     "license": "MIT",
     "authors": [
@@ -21,19 +21,10 @@
         "email": "hope2end@gmail.com"
         }
     ],
-    "repositories":
-        [
-            {
-                "type": "git",
-                "url": "https://github.com/telliott22/panel.git"
-            }
-        ],
     "require": {
         "php": ">=5.4.0",        
-        "illuminate/support": "5.0.*"
-    },
-    "require-dev":{
-        "telliott22/panel": "dev-master"
+        "illuminate/support": "5.0.*",
+        "telliott22/panel": "1.2.*"
     },
     "autoload": {
 
