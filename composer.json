@@ -31,7 +31,7 @@
     "require": {
         "php": ">=5.4.0",        
         "illuminate/support": "5.0.*",
-        "telliott22/panel": "dev-master",
+        "telliott22/panel": "dev-master"
     },
     "autoload": {
 
