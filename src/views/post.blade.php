@@ -4,8 +4,9 @@
 <div id="blog" class="">
     <!-- Top Navigation -->
     <div class="codrops-top clearfix">
-        <a class="fa fa-reply" href="{{url('/')}}"><span style="color:{{$post['color']}}">Back to the Serverfire website</span></a>
+        <a class="fa fa-reply" href="{{url('/')}}"><span style="color:{{$post['color']}}">Back to the Sparegreenroom.com</span></a>
         <span class="right"><a style="color:{{$post['color']}}" class="fa fa-list" href="{{url('/blog')}}"><span style="color:{{$post['color']}}">Last Post</span></a></span>
+        <span class="right"><a style="color:{{$post['color']}};padding-right: 20px" class="fa fa-ticket" href="{{url('/blog-featured-eventsel a ')}}"><span style="color:{{$post['color']}}">Featured Event</span></a></span>
 
     </div>
     <header class="header">
@@ -16,20 +17,18 @@
     </header>
     <button class="trigger" data-info="Read the Post"><span>Trigger</span></button>
     <div class="title">
-        
-        <p class="subline">{{$post['socialPoint']}} People did share it . </p>
-        <p>by <strong>{{$post['author']}}</strong> &#8212; Posted in <strong>Serverfire</strong> on <strong>{{$post['created_at']}}</strong></p>
+        <p>by <strong>{{$post['author']}}</strong> &#8212; Posted on <strong>{{$post['created_at']}}</strong></p>
     </div>
     <article class="content post-content">
         <div>{!! $post['content'] !!}</div>
     </article>
     <section class="related">
-        <p>If you enjoyed this post, share it on social networks :</p>
-        <p>  <a target="_blank" href="{{ Config::get('app.url')  .'/blog/share/'. $post['id']}}/facebook"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
-            <a target="_blank" href="{{ Config::get('app.url')  .'/blog/share/'. $post['id']}}/twitter"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
-            <a target="_blank" href="{{ Config::get('app.url')  .'/blog/share/'. $post['id']}}/googlePlus"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
-            <a target="_blank" href="{{ Config::get('app.url')  .'/blog/share/'. $post['id']}}/linkedIn"><i id="social" class="fa fa-linkedin-square fa-3x social-gp"></i></a>
-        </p>
+        {{--<p>If you enjoyed this post, share it on social networks :</p>--}}
+        {{--<p>  <a target="_blank" href="{{ Config::get('app.url')  .'/blog/share/'. $post['id']}}/facebook"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>--}}
+            {{--<a target="_blank" href="{{ Config::get('app.url')  .'/blog/share/'. $post['id']}}/twitter"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>--}}
+            {{--<a target="_blank" href="{{ Config::get('app.url')  .'/blog/share/'. $post['id']}}/googlePlus"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>--}}
+            {{--<a target="_blank" href="{{ Config::get('app.url')  .'/blog/share/'. $post['id']}}/linkedIn"><i id="social" class="fa fa-linkedin-square fa-3x social-gp"></i></a>--}}
+        {{--</p>--}}
         <p class="post-button">
 
             @if($post->nextPost())
