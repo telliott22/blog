@@ -21,10 +21,17 @@
         "email": "hope2end@gmail.com"
         }
     ],
+    "repositories":
+    [
+        {
+            "type": "git",
+            "url": "https://github.com/telliott22/panel.git"
+        }
+    ],
     "require": {
         "php": ">=5.4.0",        
         "illuminate/support": "5.0.*",
-        "serverfireteam/panel": "1.2.*"
+        "telliott22/panel": "1.2.*"
     },
     "autoload": {
 
