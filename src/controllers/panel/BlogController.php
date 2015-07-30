@@ -29,6 +29,19 @@ class BlogController extends \Serverfireteam\Panel\CrudController {
         $this->grid->add('title','title');
         $this->grid->add('socialPoint','social Point');
         $this->grid->add('featured','Featured Event');
+
+
+         $this->grid->row(function($row){
+
+             if($row->cell('featured')->value == 0){
+                 $row->cell('featured')->value = 'No';
+             }elseif($row->cell('featured')->value == 1){
+                 $row->cell('featured')->value = 'Yes';
+             }
+
+         });
+
+
         $this->addStylesToGrid();
                        
         return $this->returnView();
@@ -44,11 +57,20 @@ class BlogController extends \Serverfireteam\Panel\CrudController {
         $this->edit->label('Edit Project');     
         $this->edit->add('title','post title', 'text')->rule('required|min:3');
         $this->edit->add('author','author', 'text')->rule('required|min:2');   
-        $this->edit->add('content','content', 'textarea')->rule('required');
-        $this->edit->add('featured','Featured Event', 'radiogroup')->option('0','Not-featured')->option('1','Featured Event')->rule('required');
+        $this->edit->add('content','content', 'redactor')->rule('required');
         $this->edit->add('image','image', 'image')->move('uploads/');
         $this->edit->add('color','Color','colorpicker');
         $this->edit->add('public','public','radiogroup')->option(0,'Draft')->option(1,'Ready');
+        $this->edit->add('featured','Featured Event','radiogroup')->option(0,'No')->option(1,'Yes');
+
+        $this->edit->saved(function () {
+
+            return \View::make('panelViews::dashboard');
+
+        });
+
         return $this->returnEditView();
+
+
     }
 }

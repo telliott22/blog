@@ -14,7 +14,7 @@
 class Blog extends \Eloquent {
     //put your code here
     protected  $table = 'blog';
-    
+
     // return url of blog post 
     function getUrl(){
         return \Config::get('app.url') .'/blog/post/'. $this->id . '/' . \Serverfireteam\blog\BlogController::seoUrl($this->title);
@@ -23,11 +23,6 @@ class Blog extends \Eloquent {
     public static  function mostRecommended(){
         return  self::orderBy('socialPoint','desc')->where('public', 1)->take(1)->get()->first();
     }
-
-    public static  function latestFeaturedEvent(){
-        return  self::orderBy('created_at','desc')->where('featured', 1)->first();
-    }
-
     public function nextPost(){
         // get next post
         return self::where('id', '>', $this->id)->where('public', 1)->orderBy('id','asc')->take(1)->get()->first();
@@ -36,21 +31,23 @@ class Blog extends \Eloquent {
         // get previous  post 
         return self::where('id', '<', $this->id)->where('public', 1)->orderBy('id','desc')->take(1)->get()->first();
     }
-    
-    public static  function lastPosts($number = null)
-    {
-        if ($number != null) {
-            return self::where('public', 1)->take($number)
-                ->orderBy('created_at', 'desc')->get();
-        } else {
-            return self::orderBy('created_at', 'desc')->where('public', 1)
-                ->get();
-        }
+    public static  function featuredEventsPosts() {
+        //get featured events posts
+        return self::where('featured','=',1)->orderBy('created_at','desc')->limit(2)->get();
     }
+    
+    public static  function lastPosts($number = null, $paginateNumber = false) {
+        if ( $number != null ){
+            return self::where('public', 1)->take($number)
+                    ->orderBy('created_at','desc')
+                    ->get();
 
-    public static  function featuredEvents() {
-
-        return self::where('featured','=',1)->orderBy('created_at','desc')->get();
-
+        } elseif($paginateNumber != false && is_int($paginateNumber)){
+            return self::orderBy('created_at','desc')->where('public', 1)
+                ->simplePaginate($paginateNumber);
+        }else {
+            return self::orderBy('created_at','desc')->where('public', 1)
+                    ->get();
+        }
     }
 }

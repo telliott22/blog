@@ -11,11 +11,14 @@
         <!-- Include *at least* the core style and default theme -->
 		<link href="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/styles/shCore.css")}}" rel="stylesheet" type="text/css" />
 		<link href="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/styles/shThemeDefault.css")}}" rel="stylesheet" type="text/css" />
+        {{--<link href="{{ elixir('css/app.css') }}" rel="stylesheet">--}}
+
+
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
-	<body >
-            @yield('body')
+	<body>
+        @yield('body')
 	</body>
 </html>

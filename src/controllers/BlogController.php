@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Serverfireteam\Panel\libs\dashboard;
 
 
 class BlogController extends BaseController {
@@ -16,29 +17,12 @@ class BlogController extends BaseController {
 	public function getIndex()
 	{
             $mostRecommended = \App\Blog::mostRecommended();
-            $last            = \App\Blog::lastPosts();
-            //echo'<pre>';
-            //dd($mostRecommended);
-<<<<<<< HEAD
+            $last            = \App\Blog::lastPosts(null,6);
+            $featuredEvents  = \App\Blog::featuredEventsPosts();
 
-            return View('blog::index',array('title'=>"Welcome",'mostRecommended'=>$mostRecommended,'last'=>$last));
-=======
-<<<<<<< HEAD
-            return View('blog::index',array('title'=>"Welcome ",'mostRecommended'=>$mostRecommended,'last'=>$last));
-=======
-            return View('blog::index',array('title'=>"Welcome",'mostRecommended'=>$mostRecommended,'last'=>$last));
->>>>>>> spare-green-room
->>>>>>> 0ff6d869bd9e6b18fa4e128418a3cd196f177318
+
+            return View('blog::index',array('mostRecommended'=>$mostRecommended,'last'=>$last,'featuredEvents'=>$featuredEvents));
 	}
-
-    public function featuredEvents()
-    {
-        $mostRecommended = \App\Blog::latestFeaturedEvent();
-        $last            = \App\Blog::featuredEvents();
-        //echo'<pre>';
-        //dd($mostRecommended);
-        return View('blog::index',array('title'=>"Featured Events",'last'=>$last,'mostRecommended'=>$mostRecommended));
-    }
 
     public static function seoUrl($string) {
         //Lower case everything
