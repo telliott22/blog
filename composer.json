@@ -21,6 +21,21 @@
         "email": "hope2end@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type":"package",
+            "package": {
+                "name": "serverfireteam/panel",
+                "version":"master",
+                "source": {
+                    "url": "https://github.com/telliott22/panel.git",
+                    "type": "git",
+                    "reference":"master"
+                }
+            }
+        }
+    ],
+
     "require": {
         "php": ">=5.4.0",        
         "illuminate/support": "5.0.*",
