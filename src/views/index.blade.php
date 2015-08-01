@@ -99,14 +99,12 @@
    new WOW().init();
 
     $(window).resize(function() {
-        console.log('resize');
          resizeImage("third-large-image-container");
          resizeImage("large-image-container");
          resizeImage("other-large-image-container");
     });
 
    $(document).ready(function(){
-    console.log('ready');
       resizeImage("third-large-image-container");
       resizeImage("large-image-container");
       resizeImage("other-large-image-container");
