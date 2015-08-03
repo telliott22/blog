@@ -25,7 +25,7 @@
         {
             "type":"package",
             "package": {
-                "name": "serverfireteam/panel",
+                "name": "telliott22/panel",
                 "version":"master",
                 "source": {
                     "url": "https://github.com/telliott22/panel.git",
